@@ -1,0 +1,378 @@
+//@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&family=Gotu&family=Inria+Serif:ital,wght@0,400;0,700;1,300;1,700&family=Jura:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Staatliches&display=swap");
+
+:root {
+  --yellow: #edfb4d;
+  --lightblue: #eceffa;
+  --font1: "Staatliches", cursive;
+  --font2: "Amatic SC", cursive;
+  --font3: "Inria Serif", serif;
+  --font4: "Jura", sans-serif;
+  --border: 3px solid #544592;
+  --text: #fffae8;
+}
+
+body {
+  overflow: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  &:visited {
+    color: #544592;
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+img {
+  width: 100%;
+}
+
+.handwritten {
+  font-family: var(--font2);
+  color: var(--text);
+  position: absolute;
+  opacity: 0;
+  transition: opacity 800ms ease;
+  font-size: 3rem;
+  left: 0;
+  top: -2rem;
+
+  @media (max-width: 1023px) {
+    display: none;
+  }
+}
+
+.sun {
+  position: absolute;
+  width: 15vw;
+  aspect-ratio: 1 / 1;
+  background-color: #ffd904;
+  border-radius: 50%;
+  z-index: 1;
+
+  &-1 {
+    right: 20vw;
+    top: 5vw;
+
+    @media (max-width: 1023px) {
+      top: 18vw;
+    }
+  }
+
+  &-2 {
+    left: 20vw;
+    bottom: -5vw;
+  }
+
+  &-3,
+  &-4 {
+    width: 4vw;
+  }
+
+  &-3 {
+    left: 55vw;
+    top: 40vw;
+  }
+
+  &-4 {
+    left: 10vw;
+    top: 2vw;
+  }
+
+  &-5 {
+    width: 6vw;
+    right: 2vw;
+    bottom: 2vw;
+  }
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background-color: #3f4d90;
+  overflow: hidden;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
+
+  &__left,
+  &__right {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (min-width: 1024px) {
+      width: 50%;
+      height: 100%;
+    }
+  }
+
+  &__left {
+    border-right: 1px solid var(--text);
+    align-items: flex-end;
+    justify-content: center;
+
+    @media (min-width: 1024px) {
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  // svg {
+  //   height: 1em;
+  //   left: -100%;
+  //   position: absolute;
+  //   transition: 500ms ease;
+  // }
+
+  &__headline {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 1.5vw;
+    font-family: var(--font1);
+    letter-spacing: 1.5px;
+    color: var(--text);
+
+    @media (max-width: 1023px) {
+      font-size: 6vw;
+    }
+  }
+
+  &__image-wrapper {
+    height: 80%;
+    width: 80%;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+
+    @media (min-width: 1024px) {
+      height: 50%;
+      width: 50%;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  ul {
+    width: 80%;
+  }
+
+  &__list-item {
+    transition: 500ms ease;
+    position: relative;
+
+    a {
+      font-size: 8vw;
+      font-family: var(--font1);
+      color: var(--text);
+    }
+
+    span {
+      transition: 500ms ease;
+    }
+
+    @media not all and (hover: none) {
+      &:hover {
+        transform: translateX(16px);
+
+        .handwritten {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+// img {
+//   width: 100%;
+//   border-top: var(--border);
+// }
+
+// .display-none {
+//   opacity: 0;
+// }
+
+// .is-active {
+//   opacity: 1;
+// }
+
+// .container {
+//   height: 100vh;
+
+//   display: grid;
+//   grid-template-columns: 80% 20%;
+//   grid-template-rows: 10% 50% 40%;
+//   grid-template-areas:
+//     "logo-area yellow-one"
+//     "navi hover-area"
+//     "navi empty-four";
+
+//   @media (min-width: 1024px) {
+//     grid-template-columns: 1fr 3fr 6fr;
+//     grid-template-rows: 5% 85% 10%;
+//     grid-template-areas:
+//       "empty-one empty-two yellow-one"
+//       "empty-three navi hover-area"
+//       "empty-four yellow-two logo-area";
+//   }
+// }
+
+// .empty-top-left {
+//   border-bottom: var(--border);
+//   border-right: var(--border);
+
+//   @media (min-width: 1024px) {
+//     grid-area: empty-one;
+//   }
+// }
+// .empty-top-mid {
+//   border-bottom: var(--border);
+
+//   @media (min-width: 1024px) {
+//     grid-area: empty-two;
+//     border-right: var(--border);
+//   }
+// }
+// .empty-mid-left {
+//   @media (min-width: 1024px) {
+//     border-right: var(--border);
+//     grid-area: empty-three;
+//   }
+// }
+// .empty-bottom-left {
+//   border-top: var(--border);
+//   grid-area: empty-four;
+//   @media (min-width: 1024px) {
+//     border-right: var(--border);
+//   }
+// }
+// .logo-area {
+//   border-bottom: var(--border);
+//   border-right: var(--border);
+//   grid-area: logo-area;
+//   font-family: var(--font2);
+//   text-transform: uppercase;
+//   color: #544592;
+//   padding: 1rem;
+//   @media (min-width: 1024px) {
+//     grid-area: logo-area;
+//     border-bottom: 0;
+//     border-right: 0;
+//     border-top: var(--border);
+//   }
+// }
+// .hover-area {
+//   grid-area: hover-area;
+//   background-color: var(--lightblue);
+//   width: 100%;
+//   height: 100%;
+// }
+
+// .yellow-area-one {
+//   grid-area: yellow-one;
+//   background-color: var(--yellow);
+//   width: 100%;
+//   height: calc(100% - 3px);
+
+//   border-bottom: var(--border);
+//   @media (min-width: 1024px) {
+//     border-bottom: var(--border);
+//   }
+// }
+// .yellow-area-two {
+//   border-top: var(--border);
+//   border-right: var(--border);
+//   grid-area: yellow-two;
+//   background-color: var(--yellow);
+//   width: calc(100% - 3px);
+//   height: calc(100% - 3px);
+// }
+
+// .navigation {
+//   border-right: var(--border);
+//   grid-area: navi;
+//   justify-content: space-between;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+// }
+
+// .nav-list {
+//   padding-left: 2rem;
+//   padding-top: 5rem;
+//   display: flex;
+//   flex-direction: column;
+//   gap: 3rem;
+
+//   &__item {
+//     font-size: 2.5rem;
+//     position: relative;
+
+//     &:after {
+//       content: "";
+//       position: absolute;
+//       bottom: -2px;
+//       left: 0;
+//       width: 0;
+//       background-color: #544592;
+//       height: 3px;
+//       transition: 500ms ease;
+//     }
+
+//     &:hover {
+//       &:after {
+//         width: 50%;
+//       }
+//     }
+//   }
+// }
+
+// .grothwerk {
+//   font-family: var(--font3);
+// }
+// .soundcloud {
+//   font-family: var(--font1);
+//   font-size: 2.5rem;
+// }
+// .spotify {
+//   font-family: var(--font2);
+// }
+// .curicullum {
+//   font-family: var(--font4);
+//   font-weight: 700;
+//   font-size: 2.5rem;
+// }
+
+// .flower-big {
+//   position: absolute;
+//   right: 1.5rem;
+//   bottom: 0;
+// }
+
+// .flower-small {
+//   position: absolute;
+//   left: 0.5rem;
+//   bottom: 0;
+// }
